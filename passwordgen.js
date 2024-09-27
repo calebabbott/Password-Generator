@@ -5,8 +5,13 @@ const characters = [
     "~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"
 ];
 
-let myPasswordOne = document.getElementById("password-one");
-let myPasswordTwo = document.getElementById("password-two");
+const myPasswordOne = document.getElementById("password-one");
+const myPasswordTwo = document.getElementById("password-two");
+
+const btnOne = document.getElementById('copy-btn1');
+const btnTwo = document.getElementById('copy-btn2');
+
+
 
 document.getElementById("gen-btn").addEventListener('click', function() {
     // Clear existing passwords
@@ -32,3 +37,12 @@ function getRandomCharacter() {
     let randomIndex = Math.floor(Math.random() * characters.length);
     return characters[randomIndex];
 }
+
+btnOne.addEventListener('click', () => {
+    navigator.clipboard.writeText(myPasswordOne.textContent);
+})
+
+btnTwo.addEventListener('click', () => {
+    navigator.clipboard.writeText(myPasswordTwo.textContent);
+})
+
